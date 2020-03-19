@@ -15,7 +15,6 @@
 <br>
 
 ```py
-import numpy as np
 def test():
     return 'Hi'
 ```
