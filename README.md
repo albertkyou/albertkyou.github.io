@@ -6,7 +6,7 @@
 [Hello World](HelloWorld.md)<br>
 </details>
 
-<br>
+<br><br>
 
 # Machine Learning
 <details>
@@ -16,7 +16,7 @@
 [Test Page](TestPage.md)<br>
 </details>
 
-<br>
+<br><br>
 
 # Deep Learning
 <details>
@@ -26,7 +26,7 @@
 [Test Page](TestPage.md)<br>
 </details>
 
-<br>
+<br><br>
 
 # Miscellaneous
 <details>
