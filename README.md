@@ -13,7 +13,7 @@
 <summary>Short scripts going over basics.</summary>
 <br>
 
-[Hello World](HelloWorld.md)<br>
+[Hello World](MISC/HelloWorld.md)<br>
 </details>
 
 <br><br>
@@ -23,7 +23,7 @@
 <summary>Basic ML techniques</summary>
 <br>
 
-[Test Page](TestPage.md)<br>
+[Test Page](MISC/TestPage.md)<br>
 </details>
 
 <br><br>
@@ -33,7 +33,7 @@
 <summary>Neural nets galore</summary>
 <br>
 
-[Test Page](TestPage.md)<br>
+[Test Page](MISC/TestPage.md)<br>
 </details>
 
 <br><br>
@@ -43,9 +43,9 @@
 <summary>Random topics and sandbox.</summary>
 <br>
 
-[Test Page](TestPage.md) <br>
+[Test Page](MISC/TestPage.md) <br>
 [Test Project](https://albertkyou.github.io/TestProject/)<br>
-[Hello World](HelloWorld.md)<br>
+[Hello World](MISC/HelloWorld.md)<br>
 </details>
 
 
