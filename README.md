@@ -13,6 +13,7 @@
 <details>
 <summary>Random topics and sandbox.</summary>
 <br>
+
 ```py
 import numpy as np
 def test():
