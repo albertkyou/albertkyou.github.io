@@ -8,6 +8,26 @@
 
 <br>
 
+# Machine Learning
+<details>
+<summary>Basic ML techniques</summary>
+<br>
+
+[Test Page](TestPage.md)<br>
+</details>
+
+<br>
+
+# Deep Learning
+<details>
+<summary>Neural nets galore</summary>
+<br>
+
+[Test Page](TestPage.md)<br>
+</details>
+
+<br>
+
 # Miscellaneous
 <details>
 <summary>Random topics and sandbox.</summary>
