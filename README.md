@@ -6,12 +6,14 @@
 
 </details>
 
+<br>
+
 
 # Miscellaneous
 <details>
 <summary>Random topics and sandbox.</summary>
 
-[Test Page](TestPage.md)
+[Test Page](TestPage.md) <br>
 
 [Test Project](https://albertkyou.github.io/TestProject/)
 
