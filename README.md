@@ -1,6 +1,8 @@
 # About
 Data Science is a vast and ever-changing field. Below are projects covering a variety of DS topics. All code can be found on my [GitHub](https://github.com/albertkyou).
 
+<br><br>
+
 # Basic Statistics
 <details>
 <summary>Short scripts going over basics.</summary>
