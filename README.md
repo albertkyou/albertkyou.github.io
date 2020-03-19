@@ -1,5 +1,8 @@
-# cyoubx's Projects
-cyoubx (Albert You's) projects covering basic data science topics
+# Basic Statistics
+Short scripts going over basics
+
+# Miscellaneous
+Random topics and sandbox
 
 Learn with me!
 
