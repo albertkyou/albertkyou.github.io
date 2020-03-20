@@ -4,7 +4,13 @@
 
 Predicting time-series data can be challenging depending on the priors. Here we are going to look at two cases, both using ARIMA models to see how predictions are affected.
 
-Data taken from https://www.analyticsvidhya.com/blog/2018/10/predicting-stock-price-machine-learningnd-deep-learning-techniques-python/
+
+## ARIMA On Non-Periodic Data
+
+We begin by importing important packages such as numpy and pandas. 
+We'll analyze data found [here](https://www.analyticsvidhya.com/blog/2018/10/predicting-stock-price-machine-learningnd-deep-learning-techniques-python/).
+
+Note that the data has already been downloaded locally and renamed as 'data.csv'. 
 
 
 
@@ -20,7 +26,8 @@ scaler = MinMaxScaler(feature_range=(0,1))
 
 df = pd.read_csv('data.csv')
 
-df.head() # prints the head. Note that df.head gives a nonformatted output. df.head() is nice and pretty
+# prints the head. Note that df.head gives a nonformatted output. df.head() is nice and pretty
+df.head()
 ```
 
 
@@ -116,6 +123,12 @@ df.head() # prints the head. Note that df.head gives a nonformatted output. df.h
 
 
 
+Now that we see what the data looks like, we need to reformat the data slightly. As is common with time-series data, we first convert the index into dates using `to_datetime()`.
+
+Also, because the site is using a dark theme, we'll change the matplotlib style to use `'datrk_background'`.
+
+Finally, we'll plot the `Close` prices for each datapoint.
+
 
 ```python
 df['Date'] = pd.to_datetime(df.Date,format='%Y-%m-%d')
@@ -129,12 +142,15 @@ plt.plot(df.Close, label='Close price history')
 
 
 
-    [<matplotlib.lines.Line2D at 0x212db65a460>]
+    [<matplotlib.lines.Line2D at 0x1cac70442e0>]
 
 
 
 
-![svg](StockMarket_files/StockMarket_2_1.svg)
+![svg](StockMarket_files/StockMarket_4_1.svg)
+
+
+Now it's time to train the ARIMA model! `pmdarima` (formerly pyramid) is based on `statsmodels` and offers more functionality for training ARIMA models.
 
 
 
@@ -163,6 +179,20 @@ plt.show()
 
 ```
 
+    C:\Users\youal\AppData\Local\Programs\Python\Python38\lib\site-packages\statsmodels\tsa\statespace\sarimax.py:963: UserWarning: Non-stationary starting autoregressive parameters found. Using zeros as starting parameters.
+      warn('Non-stationary starting autoregressive parameters'
+    C:\Users\youal\AppData\Local\Programs\Python\Python38\lib\site-packages\statsmodels\tsa\statespace\sarimax.py:975: UserWarning: Non-invertible starting MA parameters found. Using zeros as starting parameters.
+      warn('Non-invertible starting MA parameters found.'
+    
 
-![svg](StockMarket_files/StockMarket_3_0.svg)
+
+![svg](StockMarket_files/StockMarket_6_1.svg)
+
+
+We now see that the forecast is quite poor. However, because the data does not show an obvious periodic trend, a horizontal line is a better prediction than other predictions you might expect.
+
+Let's see next what happens when we use ARIMA on a dataset with more periodic trends.
+
+
+## ARIMA On Periodic Data
 
