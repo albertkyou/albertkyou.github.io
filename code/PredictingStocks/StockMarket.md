@@ -1,4 +1,4 @@
-# Jupyter Notebook for Creating a Deep Learning Model to Predict Stocks
+# ARIMA Models to Predict Stocks
 
 ### 3/20/2020
 
