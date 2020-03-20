@@ -2,23 +2,19 @@
 
 ### Data Science is a vast and ever-changing field. Below are projects covering various DS topics. All code can be found on my [GitHub](https://github.com/albertkyou). 
 
-#### Email: albert.you@berkeley.edu | [LinkedIn](https://linkedin.com/in/akyou) | [Curriculum Vitae](CV.pdf)
+[Email](albert.you@berkeley.edu) | [LinkedIn](https://linkedin.com/in/akyou) | [Curriculum Vitae](CV.pdf)
 ----
 
-<br>
-
-
-# Basic Statistics
+## Basic Statistics
 <details>
 <summary>Short scripts going over basics.</summary>
 <br>
 
 [Hello World](MISC/HelloWorld.md)<br>
 </details>
+<br>
 
-<br><br>
-
-# Machine Learning
+## Machine Learning
 <details>
 <summary>Basic ML techniques</summary>
 <br>
@@ -26,9 +22,9 @@
 [ARIMA Models](ML/PredictingStocks/StockMarket.md)<br>
 </details>
 
-<br><br>
+<br>
 
-# Deep Learning
+## Deep Learning
 <details>
 <summary>Neural nets galore</summary>
 <br>
@@ -36,9 +32,9 @@
 [Test Page](MISC/TestPage.md)<br>
 </details>
 
-<br><br>
+<br>
 
-# Miscellaneous
+## Miscellaneous
 <details>
 <summary>Random topics and sandbox.</summary>
 <br>
