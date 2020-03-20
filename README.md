@@ -2,7 +2,7 @@
 
 ### Data Science is a vast and ever-changing field. Below are projects covering various DS topics. All code can be found on my [GitHub](https://github.com/albertkyou). 
 
-#### Email: albert.you@berkeley.edu | [LinkedIn](https://linkedin.com/in/akyou) | [Curriculum Vitae]('CV.pdf')
+#### Email: albert.you@berkeley.edu | [LinkedIn](https://linkedin.com/in/akyou) | [Curriculum Vitae](CV.pdf)
 ----
 
 <br>
