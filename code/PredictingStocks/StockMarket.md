@@ -125,8 +125,6 @@ df.head()
 
 Now that we see what the data looks like, we need to reformat the data slightly. As is common with time-series data, we first convert the index into dates using `to_datetime()`.
 
-Also, because the site is using a dark theme, we'll change the matplotlib style to use `'datrk_background'`.
-
 Finally, we'll plot the `Close` prices for each datapoint.
 
 
@@ -134,7 +132,6 @@ Finally, we'll plot the `Close` prices for each datapoint.
 df['Date'] = pd.to_datetime(df.Date,format='%Y-%m-%d')
 df.index = df['Date']
 
-plt.style.use('dark_background')
 plt.figure(figsize=(8,4))
 plt.plot(df.Close, label='Close price history')
 ```
@@ -142,7 +139,7 @@ plt.plot(df.Close, label='Close price history')
 
 
 
-    [<matplotlib.lines.Line2D at 0x1cac70442e0>]
+    [<matplotlib.lines.Line2D at 0x1acad106d30>]
 
 
 
@@ -179,14 +176,8 @@ plt.show()
 
 ```
 
-    C:\Users\youal\AppData\Local\Programs\Python\Python38\lib\site-packages\statsmodels\tsa\statespace\sarimax.py:963: UserWarning: Non-stationary starting autoregressive parameters found. Using zeros as starting parameters.
-      warn('Non-stationary starting autoregressive parameters'
-    C:\Users\youal\AppData\Local\Programs\Python\Python38\lib\site-packages\statsmodels\tsa\statespace\sarimax.py:975: UserWarning: Non-invertible starting MA parameters found. Using zeros as starting parameters.
-      warn('Non-invertible starting MA parameters found.'
-    
 
-
-![svg](StockMarket_files/StockMarket_6_1.svg)
+![svg](StockMarket_files/StockMarket_6_0.svg)
 
 
 We now see that the forecast is quite poor. However, because the data does not show an obvious periodic trend, a horizontal line is a better prediction than other predictions you might expect.
