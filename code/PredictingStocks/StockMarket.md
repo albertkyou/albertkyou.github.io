@@ -156,6 +156,7 @@ forecasts = model.predict(test.shape[0])
 
 # Visualize the forecasts (blue=train, green=forecasts)
 x = np.arange(df.Close.shape[0])
+plt.figure(figsize=(8,4))
 plt.plot(x[:500], np.flip(train))
 plt.plot(x[500:], forecasts, c='green')
 plt.show()
