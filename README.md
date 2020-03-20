@@ -8,7 +8,6 @@
 ## Basic Statistics
 <details>
 <summary>Short scripts going over basics.</summary>
-<br>
 
 [Hello World](MISC/HelloWorld.md)<br>
 </details>
@@ -17,17 +16,15 @@
 ## Machine Learning
 <details>
 <summary>Basic ML techniques</summary>
-<br>
 
 [ARIMA Models](ML/PredictingStocks/StockMarket.md)<br>
 </details>
 
-<br>
+<br> 
 
 ## Deep Learning
 <details>
 <summary>Neural nets galore</summary>
-<br>
 
 [Test Page](MISC/TestPage.md)<br>
 </details>
@@ -37,7 +34,6 @@
 ## Miscellaneous
 <details>
 <summary>Random topics and sandbox.</summary>
-<br>
 
 [Test Page](MISC/TestPage.md) <br>
 [Test Project](https://albertkyou.github.io/TestProject/)<br>
