@@ -23,7 +23,7 @@
 <summary>Basic ML techniques</summary>
 <br>
 
-[ARIMA Models](ML/StockMarket.md)<br>
+[ARIMA Models](ML/PredictingStocks/StockMarket.md)<br>
 </details>
 
 <br><br>
