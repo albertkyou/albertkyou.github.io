@@ -125,8 +125,6 @@ df.head()
 
 Now that we see what the data looks like, we need to reformat the data slightly. As is common with time-series data, we first convert the index into dates using `to_datetime()`.
 
-Also, because the site is using a dark theme, we'll change the matplotlib style to use `'datrk_background'`.
-
 Finally, we'll plot the `Close` prices for each datapoint.
 
 
@@ -134,7 +132,6 @@ Finally, we'll plot the `Close` prices for each datapoint.
 df['Date'] = pd.to_datetime(df.Date,format='%Y-%m-%d')
 df.index = df['Date']
 
-plt.style.use('dark_background')
 plt.figure(figsize=(8,4))
 plt.plot(df.Close, label='Close price history')
 ```
@@ -142,7 +139,7 @@ plt.plot(df.Close, label='Close price history')
 
 
 
-    [<matplotlib.lines.Line2D at 0x1cac70442e0>]
+    [<matplotlib.lines.Line2D at 0x1ba9d042a00>]
 
 
 
@@ -179,14 +176,8 @@ plt.show()
 
 ```
 
-    C:\Users\youal\AppData\Local\Programs\Python\Python38\lib\site-packages\statsmodels\tsa\statespace\sarimax.py:963: UserWarning: Non-stationary starting autoregressive parameters found. Using zeros as starting parameters.
-      warn('Non-stationary starting autoregressive parameters'
-    C:\Users\youal\AppData\Local\Programs\Python\Python38\lib\site-packages\statsmodels\tsa\statespace\sarimax.py:975: UserWarning: Non-invertible starting MA parameters found. Using zeros as starting parameters.
-      warn('Non-invertible starting MA parameters found.'
-    
 
-
-![svg](StockMarket_files/StockMarket_6_1.svg)
+![svg](StockMarket_files/StockMarket_6_0.svg)
 
 
 We now see that the forecast is quite poor. However, because the data does not show an obvious periodic trend, a horizontal line is a better prediction than other predictions you might expect.
@@ -196,3 +187,66 @@ Let's see next what happens when we use ARIMA on a dataset with more periodic tr
 
 ## ARIMA On Periodic Data
 
+Now that we've seen how an ARIMA model (doesn't) work on data with weird trends, let's see how it performs given data that we know to be periodic.
+
+
+I did a quick search for `christmas` in the US on Google Trends and downloaded the data for the past 16 years.
+
+Let's load that in and see what it plots!
+
+
+```python
+df = pd.read_csv('christmas.csv')
+
+df.index = df['Month']
+
+plt.figure(figsize=(8,4))
+plt.plot(df['christmas: (United States)'])
+plt.xlabel('Time')
+```
+
+
+
+
+    Text(0.5, 0, 'Time')
+
+
+
+
+![svg](StockMarket_files/StockMarket_9_1.svg)
+
+
+So we see that the data is periodic with no obvious trend over time. Let's see what our ARIMA model does now!
+
+
+```python
+# split the data as before
+train, test = train_test_split(df['christmas: (United States)'], train_size = 50)
+
+# train the model
+model = pm.auto_arima(train, seasonal = True, m=12)
+
+# make forecasts
+forecasts = model.predict(test.shape[0])
+
+
+# Visualize
+x = np.arange(len(df))
+plt.figure(figsize=(8,4))
+plt.plot(x,df['christmas: (United States)'], c='orange')
+plt.plot(x[:50], train)
+plt.plot(x[50:], forecasts, c='green')
+
+plt.legend(['Actual', 'Training Data', 'Forecast'])
+plt.show()
+```
+
+    C:\Users\youal\AppData\Local\Programs\Python\Python38\lib\site-packages\statsmodels\base\model.py:567: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+      warn("Maximum Likelihood optimization failed to converge. "
+    
+
+
+![svg](StockMarket_files/StockMarket_11_1.svg)
+
+
+From this we can see that our model did a great job at predicting what happens on a 12 month cycle. However, it failed to predict any changes in peak search count over time. That's one of the shortcomings of ARIMA models. While they can be powerful tools to find periodic trends, they work less well at capturing subtle trends (though, most models would struggle with this particular data).
