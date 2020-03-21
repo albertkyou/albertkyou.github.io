@@ -249,4 +249,4 @@ plt.show()
 ![svg](StockMarket_files/StockMarket_11_1.svg)
 
 
-From this we can see that our model did a great job at predicting what happens on a 12 month cyle. However, it failed to predict any changes in peak search count over time. That's one of the shortcomings of ARIMA models. While they can be powerful tools to find periodic trends, they work less well at capturing subtle trends (though, most models would struggle with this particular data).
+From this we can see that our model did a great job at predicting what happens on a 12 month cycle. However, it failed to predict any changes in peak search count over time. That's one of the shortcomings of ARIMA models. While they can be powerful tools to find periodic trends, they work less well at capturing subtle trends (though, most models would struggle with this particular data).
