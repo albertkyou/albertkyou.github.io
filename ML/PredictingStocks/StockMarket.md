@@ -139,7 +139,7 @@ plt.plot(df.Close, label='Close price history')
 
 
 
-    [<matplotlib.lines.Line2D at 0x1acad106d30>]
+    [<matplotlib.lines.Line2D at 0x1ba9d042a00>]
 
 
 
@@ -187,3 +187,66 @@ Let's see next what happens when we use ARIMA on a dataset with more periodic tr
 
 ## ARIMA On Periodic Data
 
+Now that we've seen how an ARIMA model (doesn't) work on data with weird trends, let's see how it performs given data that we know to be periodic.
+
+
+I did a quick search for `christmas` in the US on Google Trends and downloaded the data for the past 16 years.
+
+Let's load that in and see what it plots!
+
+
+```python
+df = pd.read_csv('christmas.csv')
+
+df.index = df['Month']
+
+plt.figure(figsize=(8,4))
+plt.plot(df['christmas: (United States)'])
+plt.xlabel('Time')
+```
+
+
+
+
+    Text(0.5, 0, 'Time')
+
+
+
+
+![svg](StockMarket_files/StockMarket_9_1.svg)
+
+
+So we see that the data is periodic with no obvious trend over time. Let's see what our ARIMA model does now!
+
+
+```python
+# split the data as before
+train, test = train_test_split(df['christmas: (United States)'], train_size = 50)
+
+# train the model
+model = pm.auto_arima(train, seasonal = True, m=12)
+
+# make forecasts
+forecasts = model.predict(test.shape[0])
+
+
+# Visualize
+x = np.arange(len(df))
+plt.figure(figsize=(8,4))
+plt.plot(x,df['christmas: (United States)'], c='orange')
+plt.plot(x[:50], train)
+plt.plot(x[50:], forecasts, c='green')
+
+plt.legend(['Actual', 'Training Data', 'Forecast'])
+plt.show()
+```
+
+    C:\Users\youal\AppData\Local\Programs\Python\Python38\lib\site-packages\statsmodels\base\model.py:567: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+      warn("Maximum Likelihood optimization failed to converge. "
+    
+
+
+![svg](StockMarket_files/StockMarket_11_1.svg)
+
+
+From this we can see that our model did a great job at predicting what happens on a 12 month cyle. However, it failed to predict any changes in peak search count over time. That's one of the shortcomings of ARIMA models. While they can be powerful tools to find periodic trends, they work less well at capturing subtle trends (though, most models would struggle with this particular data).
